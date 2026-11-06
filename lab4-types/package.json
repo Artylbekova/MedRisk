@@ -1,0 +1,13 @@
+{
+  "name": "medrisk-lab4-types",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "dev": "tsc && node dist/demo.js"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3"
+  }
+}

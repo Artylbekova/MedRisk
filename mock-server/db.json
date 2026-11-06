@@ -1,0 +1,10 @@
+{
+  "patients": [
+    {"id":1,"fullName":"Алина Тестова","age":46,"sex":"female","systolicBP":132,"heartRate":78,"priorAdmissions":1,"diabetes":false,"status":"active","createdAt":"2026-10-01T09:00:00Z"},
+    {"id":2,"fullName":"Бакыт Примеров","age":67,"sex":"male","systolicBP":154,"heartRate":96,"priorAdmissions":2,"diabetes":true,"status":"active","createdAt":"2026-10-02T09:00:00Z"},
+    {"id":3,"fullName":"Нурай Демова","age":29,"sex":"female","systolicBP":115,"heartRate":72,"priorAdmissions":0,"diabetes":false,"status":"active","createdAt":"2026-10-03T09:00:00Z"},
+    {"id":4,"fullName":"Данияр Учебный","age":58,"sex":"male","systolicBP":141,"heartRate":84,"priorAdmissions":1,"diabetes":true,"status":"inactive","createdAt":"2026-10-04T09:00:00Z"},
+    {"id":5,"fullName":"Айгерим Образцова","age":39,"sex":"female","systolicBP":122,"heartRate":76,"priorAdmissions":0,"diabetes":false,"status":"active","createdAt":"2026-10-05T09:00:00Z"},
+    {"id":6,"fullName":"Эрмек Демонстрационный","age":73,"sex":"male","systolicBP":165,"heartRate":102,"priorAdmissions":3,"diabetes":true,"status":"active","createdAt":"2026-10-06T09:00:00Z"}
+  ]
+}

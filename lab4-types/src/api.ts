@@ -1,0 +1,2 @@
+import type {Patient} from './models.js';import type {Paginated,Result} from './dto.js';import {isPaginatedPatients} from './guards.js';
+export async function getPatients(base='http://localhost:3000'):Promise<Result<Paginated<Patient>>>{try{const r=await fetch(`${base}/api/patients`);if(!r.ok)return {ok:false,error:`HTTP ${r.status}`,status:r.status};const raw:unknown=await r.json();return isPaginatedPatients(raw)?{ok:true,data:raw}:{ok:false,error:'Неверный JSON'}}catch(e){return {ok:false,error:e instanceof Error?e.message:'Сетевая ошибка'}}}

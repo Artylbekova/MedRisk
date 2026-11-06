@@ -1,0 +1,235 @@
+{
+  "info": {
+    "name": "MedRisk — Lab 2 REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "patientId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List patients",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients?page=1&limit=3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create patient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Тестовый Пациент\", \"age\": 52, \"sex\": \"female\", \"systolicBP\": 130, \"heartRate\": 75, \"priorAdmissions\": 1, \"diabetes\": false, \"status\": \"active\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 201) { pm.collectionVariables.set(\"patientId\", pm.response.json().id); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get patient",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients/{{patientId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "{{patientId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update patient",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients/{{patientId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "{{patientId}}"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"Пациент Тестовый\", \"age\": 53, \"sex\": \"female\", \"systolicBP\": 131, \"heartRate\": 76, \"priorAdmissions\": 1, \"diabetes\": false, \"status\": \"active\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Not found",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients/999999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "999999"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Validation error",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"fullName\": \"X\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete patient",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/patients/{{patientId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "{{patientId}}"
+          ]
+        }
+      }
+    }
+  ]
+}
